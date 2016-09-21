@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package id.appl.view;
 
 import id.appl.model.Model;
@@ -11,13 +6,13 @@ import id.appl.model.Model;
  *
  * @author panji
  */
-public class ControllerView extends javax.swing.JFrame implements IControllerView{
+public class ControllerView extends javax.swing.JFrame implements IControllerView {
 
     /**
      * Creates new form ControllerView
      */
     Model model;
-    
+
     public ControllerView(Model model) {
         this.model = model;
         initComponents();
@@ -84,11 +79,17 @@ public class ControllerView extends javax.swing.JFrame implements IControllerVie
         // TODO add your handling code here:
         model.createText(tfName.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
-    
-    public void updateView(){
+
+    public void updateView() {
         labelHello.setText(model.getTextHello());
     }
 
+    public static void main(String[] args) {
+        Model model = new Model();
+        ControllerView cv = new ControllerView(model);
+        model.attach(cv);
+        cv.setVisible(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
